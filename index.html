@@ -10,12 +10,12 @@
             --primary-color: #4361ee;
             --secondary-color: #3f37c9;
             --accent-color: #4895ef;
-            --text-color: #2b2d42;
+            --text-color: #ffffff; /* 改为白色文本以适应黑色背景 */
             --light-text: #f8f9fa;
-            --bg-color: #ffffff;
+            --bg-color: #000000; /* 背景改为黑色 */
             --dark-bg: #1a1a2e;
-            --border-color: #e9ecef;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-color: #333333; /* 调整边框颜色以适应黑色背景 */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* 阴影加深 */
             --transition: all 0.3s ease;
         }
 
@@ -32,6 +32,18 @@
             color: var(--text-color);
             background-color: var(--bg-color);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 二进制雨效果 */
+        #matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.8; /* 降低不透明度以免影响内容阅读 */
         }
 
         a {
@@ -46,7 +58,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(0, 0, 0, 0.95); /* 改为黑色半透明 */
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
             z-index: 1000;
@@ -56,7 +68,7 @@
 
         .navbar.scrolled {
             padding: 0.5rem 0;
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: rgba(0, 0, 0, 0.98); /* 改为黑色半透明 */
         }
 
         .nav-container {
@@ -107,7 +119,7 @@
             display: flex;
             align-items: center;
             padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* 改为黑色渐变 */
             position: relative;
             overflow: hidden;
         }
@@ -184,6 +196,9 @@
         /* 项目区域 */
         .section {
             padding: 6rem 2rem;
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -221,17 +236,19 @@
         }
 
         .project-card {
-            background-color: white;
+            background-color: rgba(30, 30, 30, 0.8); /* 深灰色半透明背景 */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             cursor: pointer;
+            border: 1px solid rgba(67, 97, 238, 0.3); /* 添加边框 */
         }
 
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 15px 30px rgba(67, 97, 238, 0.2);
+            border-color: var(--primary-color); /* 悬停时边框高亮 */
         }
 
         .project-image {
@@ -264,7 +281,7 @@
         }
 
         .project-description {
-            color: #666;
+            color: #aaa; /* 浅灰色描述文字 */
             margin-bottom: 1rem;
             font-size: 0.95rem;
         }
@@ -277,8 +294,8 @@
         }
 
         .tag {
-            background-color: #f0f4f8;
-            color: #486581;
+            background-color: rgba(67, 97, 238, 0.2); /* 半透明标签背景 */
+            color: #aab7ff; /* 浅蓝色标签文字 */
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
             font-size: 0.75rem;
@@ -314,7 +331,7 @@
         }
 
         .modal-content {
-            background: white;
+            background: #111; /* 深色背景 */
             margin: 5% auto;
             padding: 30px;
             width: 90%;
@@ -322,6 +339,7 @@
             border-radius: 15px;
             position: relative;
             animation: modalOpen 0.3s ease-out;
+            border: 1px solid rgba(67, 97, 238, 0.3); /* 添加边框 */
         }
 
         @keyframes modalOpen {
@@ -347,8 +365,9 @@
         .decoder-section {
             margin-bottom: 20px;
             padding: 15px;
-            background: #f8f9fa;
+            background: rgba(30, 30, 30, 0.5); /* 深灰色半透明背景 */
             border-radius: 8px;
+            border: 1px solid rgba(67, 97, 238, 0.2); /* 添加边框 */
         }
 
         .decoder-section h2 {
@@ -361,15 +380,18 @@
             height: 100px;
             margin: 10px 0;
             padding: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
         }
 
         .result {
             margin-top: 10px;
             padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
             min-height: 50px;
+            color: #fff;
         }
 
         /* GIF拆解工具特有样式 */
@@ -379,18 +401,18 @@
             padding: 30px;
             text-align: center;
             margin-bottom: 20px;
-            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.3);
             transition: all 0.3s;
         }
 
         .gif-upload-area:hover {
             border-color: #2980b9;
-            background-color: #f8f9fa;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .gif-upload-area.dragover {
             border-color: #27ae60;
-            background-color: #e8f5e9;
+            background-color: rgba(0, 30, 0, 0.5);
         }
 
         .gif-file-input {
@@ -422,7 +444,7 @@
         .gif-frame {
             margin: 10px;
             text-align: center;
-            background: white;
+            background: rgba(30, 30, 30, 0.8);
             padding: 10px;
             border-radius: 5px;
             box-shadow: var(--shadow);
@@ -470,7 +492,7 @@
 
         .gif-progress-container {
             width: 100%;
-            background-color: #ddd;
+            background-color: #333;
             border-radius: 5px;
             margin: 10px 0;
             display: none;
@@ -489,7 +511,7 @@
         /* 端口扫描工具特有样式 */
         .progress-container {
             width: 100%;
-            background-color: #ddd;
+            background-color: #333;
             border-radius: 5px;
             margin: 10px 0;
             display: none;
@@ -519,8 +541,10 @@
         .number-input-group input {
             flex: 1;
             padding: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
             border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
         }
 
         /* 摩斯密码工具特有样式 */
@@ -530,6 +554,7 @@
 
         .morse-options label {
             margin-right: 15px;
+            color: #fff;
         }
 
         /* 二维码扫描工具特有样式 */
@@ -539,18 +564,18 @@
             padding: 30px;
             text-align: center;
             margin-bottom: 20px;
-            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.3);
             transition: all 0.3s;
         }
 
         .qr-upload-area:hover {
             border-color: #2980b9;
-            background-color: #f8f9fa;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .qr-upload-area.dragover {
             border-color: #27ae60;
-            background-color: #e8f5e9;
+            background-color: rgba(0, 30, 0, 0.5);
         }
 
         .qr-file-input {
@@ -690,6 +715,9 @@
     </style>
 </head>
 <body>
+    <!-- 二进制雨效果 -->
+    <canvas id="matrix-rain"></canvas>
+
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
@@ -750,7 +778,7 @@
             <div class="project-card" onclick="showNumberConverterModal()">
                 <div class="project-image" style="background: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);">
                     <svg class="tool-icon" viewBox="0 0 24 24">
-                        <path fill="white" d="M7,11H9A3,3 0 0,0 12,8A3,3 0 0,0 9,5H7V11M15,5H13A3,3 0 0,0 10,8A3,3 0 0,0 13,11H15V5M12,15A3,3 0 0,0 15,18H17V13H19V18A3,3 0 0,0 22,15A3,3 0 0,0 19,12A3,3 0 0,0 22,9A3,3 0 0,0 19,6H17V11H15V6H13A3,3 0 0,0 10,9A3,3 0 0,0 13,12A3,3 0 0,0 10,15A3,3 0 0,0 13,18H15V13H17V18H19V20H5V4H19V6H21V4A2,2 0 0,0 19,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V18A2,2 0 0,0 19,16A2,2 0 0,0 21,14V10A2,2 0 0,0 19,8H17V9A2,2 0 0,1 15,11H13A2,2 0 0,1 11,9V8A2,2 0 0,1 13,6H15A2,2 0 0,1 17,8V9H19A2,2 0 0,1 21,11V13A2,2 0 0,1 19,15A2,2 0 0,1 21,17V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V18H5V19H19V17H5V13H7V15H5V11H7V9H5V6H7V7H5V5H7V6H9V5H11V6H13V5H15V6H17V5H19V6H21V5H19V6Z"/>
+                        <path fill="white" d="M7,11H9A3,3 0 0,0 12,8A3,3 0 0,0 9,5H7V11M15,5H13A3,3 0 0,0 10,8A3,3 0 0,0 13,11H15V5M12,15A3,3 0 0,0 15,18H17V13H19V18H21V20H5V4H19V6H21V4A2,2 0 0,0 19,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V18A2,2 0 0,0 19,16A2,2 0 0,0 21,14V10A2,2 0 0,0 19,8H17V9A2,2 0 0,1 15,11H13A2,2 0 0,1 11,9V8A2,2 0 0,1 13,6H15A2,2 0 0,1 17,8V9H19A2,2 0 0,1 21,11V13A2,2 0 0,1 19,15A2,2 0 0,1 21,17V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V18H5V19H19V17H5V13H7V15H5V11H7V9H5V6H7V7H5V5H7V6H9V5H11V6H13V5H15V6H17V5H19V6H21V5H19V6Z"/>
                     </svg>
                 </div>
                 <div class="project-content">
@@ -855,7 +883,7 @@
     </section>
 
     <!-- 技术博客区域 -->
-    <section id="blog" class="section" style="background-color: #f8f9fa;">
+    <section id="blog" class="section" style="background-color: rgba(0, 0, 0, 0.7);">
         <div class="section-title">
             <h2>其他在线工具</h2>
         </div>
@@ -1032,7 +1060,7 @@
     </section>
 
     <!-- 联系方式区域 -->
-    <section id="contact" class="section" style="background-color: #f8f9fa;">
+    <section id="contact" class="section" style="background-color: rgba(0, 0, 0, 0.7);">
         <div class="section-title">
             <h2>联系方式</h2>
         </div>
@@ -1244,11 +1272,11 @@
                     <div id="scan-results" style="max-height: 300px; overflow-y: auto; margin-top: 15px;">
                         <table style="width: 100%; border-collapse: collapse;">
                             <thead>
-                                <tr style="background-color: #f0f4f8;">
-                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">端口</th>
-                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">状态</th>
-                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">服务</th>
-                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">响应时间</th>
+                                <tr style="background-color: rgba(30, 30, 30, 0.5);">
+                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #333;">端口</th>
+                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #333;">状态</th>
+                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #333;">服务</th>
+                                    <th style="padding: 8px; text-align: left; border-bottom: 1px solid #333;">响应时间</th>
                                 </tr>
                             </thead>
                             <tbody id="scan-results-body">
@@ -1355,6 +1383,67 @@
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
     
     <script>
+        // 二进制雨效果
+        (function() {
+            const canvas = document.getElementById('matrix-rain');
+            const ctx = canvas.getContext('2d');
+            
+            // 设置canvas大小为窗口大小
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // 字符集 - 使用日文片假名和一些数字增加黑客感
+            const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
+            
+            // 字体大小
+            const fontSize = 16;
+            
+            // 计算列数
+            const columns = Math.floor(canvas.width / fontSize);
+            
+            // 初始化Y坐标
+            const drops = [];
+            for(let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * -100; // 随机初始位置
+            }
+            
+            // 绘制函数
+            function draw() {
+                // 半透明黑色背景 - 产生拖尾效果
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // 设置字体和颜色
+                ctx.fillStyle = '#0f0'; // 绿色
+                ctx.font = fontSize + 'px monospace';
+                
+                // 绘制字符
+                for(let i = 0; i < drops.length; i++) {
+                    const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                    
+                    // 绘制字符
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    // 随机重置Y坐标
+                    if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    // 下移Y坐标
+                    drops[i]++;
+                }
+            }
+            
+            // 窗口大小调整时重置canvas
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+            
+            // 每33毫秒绘制一次 (~30fps)
+            setInterval(draw, 33);
+        })();
+
         // 导航栏滚动效果
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -1735,10 +1824,10 @@
                     // 添加到结果表格
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">${port}</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd; color: #27ae60;">开放</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">${service}</td>
-                        <td style="padding: 8px; border-bottom: 1px solid #ddd;">${responseTime}ms</td>
+                        <td style="padding: 8px; border-bottom: 1px solid #333;">${port}</td>
+                        <td style="padding: 8px; border-bottom: 1px solid #333; color: #27ae60;">开放</td>
+                        <td style="padding: 8px; border-bottom: 1px solid #333;">${service}</td>
+                        <td style="padding: 8px; border-bottom: 1px solid #333;">${responseTime}ms</td>
                     `;
                     document.getElementById('scan-results-body').appendChild(row);
                 }
